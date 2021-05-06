@@ -16,5 +16,39 @@ export default StyleSheet.create({
     contentText:{
         color:textColor,
         fontSize:18
+    },
+    breakout:{
+        height:15,
+        width:'100%',
+        backgroundColor:'#F4F5F7',
+    },
+    cartFooterContainer:{
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        margin:20
+    },
+    addCartButton:{
+        height:50,
+        width:180,
+        backgroundColor:'#227EFF',
+        borderRadius:5,
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    wishListButton:{
+        borderRadius:5,
+        height:50,
+        width:180,
+        borderColor:'#A0B1C1',
+        borderWidth:1,
+        alignItems:'center',
+        justifyContent: 'center',
+    },
+    addCartText:{
+        color:'#fff',
+        fontSize:18
+    },
+    wishListText:{
+        fontSize:18
     }
 })
