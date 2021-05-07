@@ -2,26 +2,23 @@ import React, { Component } from 'react';
 import { View, Text,Image, TouchableOpacity } from 'react-native';
 import Header from '../Header';
 import Styles from './styles';
-import {Icon} from 'react-native-elements';
 import Message from '../../common/message'
-import AntIcon from "react-native-vector-icons/AntDesign";
 import CartItem from './CartItem';
 import { ScrollView } from 'react-native-gesture-handler';
 import Products from '../Home/Products';
-
 export default class Carts extends Component {
   constructor(props) {
     super(props);
     this.state = {
     };
   }
-
   render() {
     return (
       <>
         <Header name="Cart"/>
         <ScrollView>
           <View style={Styles.containerBackground}>
+          {/* cart items */}
             <CartItem />
             <CartItem />
           </View>
@@ -35,7 +32,7 @@ export default class Carts extends Component {
                 <Text style={Styles.totalText}>Total</Text>
                 <Text style={{...Styles.totalText,fontWeight:'bold'}}>N18,099.09</Text>
               </View>
-              <TouchableOpacity style={Styles.checkoutButton}>
+              <TouchableOpacity style={Styles.checkoutButton} onPress={()=>this.props.navigation.navigate('Checkout')}>
                 <Text style={Styles.checkoutText}>Checkout</Text>
               </TouchableOpacity>
             </View>
@@ -45,6 +42,7 @@ export default class Carts extends Component {
             <Text style={Styles.recentlyViewText}>Recently View</Text>
             <Text style={Styles.viewAllText}>View all</Text>
           </View>
+          {/* Recently Viewed Product */}
           <Products />
         </ScrollView>
       </>
