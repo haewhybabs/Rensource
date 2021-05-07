@@ -18,6 +18,7 @@ export default class Details extends Component {
         <Header name="Details"/>
         <ScrollView>
           <View style={Styles.headerBackground}>
+            {/* Message */}
             <Message />
             <Image 
               source = {require('../../assets/images/shoe.png')}                         
@@ -67,7 +68,7 @@ export default class Details extends Component {
             </View>
           </View>
         </ScrollView>
-        <CartFooter />
+        <CartFooter navigation={this.props.navigation}/>
       </>
     );
   }

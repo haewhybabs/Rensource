@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text,TouchableOpacity} from 'react-native';
 import Styles from './styles';
 
 export default class CartFooter extends Component {
@@ -13,13 +13,13 @@ export default class CartFooter extends Component {
         <>
             <View style={Styles.breakout}/>
             <View style={Styles.cartFooterContainer}>
-                <View style={Styles.addCartButton}>
+                <TouchableOpacity style={Styles.addCartButton} onPress={()=>this.props.navigation.navigate('Carts')}>
                     <Text style={Styles.addCartText}>Add to Cart</Text>
-                </View>
+                </TouchableOpacity>
 
-                <View style={Styles.wishListButton}>
+                <TouchableOpacity style={Styles.wishListButton}>
                     <Text style={Styles.wishListText}>Wishlist</Text>
-                </View>
+                </TouchableOpacity>
             </View>
 
         </>

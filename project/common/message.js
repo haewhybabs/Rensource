@@ -9,7 +9,6 @@ export default class Message extends Component {
     this.state = {
     };
   }
-
   render() {
     return (
     <View style={Styles.messageWrapper}>
