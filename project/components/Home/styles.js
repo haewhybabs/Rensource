@@ -144,7 +144,7 @@ export default StyleSheet.create({
     },
     productHeaderText:{
         marginTop:10,
-        fontSize:14,
+        fontSize:12,
         fontWeight:'600'
     },
     productItemsContainer:{
