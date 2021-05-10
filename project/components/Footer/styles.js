@@ -15,7 +15,7 @@ export default StyleSheet.create({
     },
     contentText:{
         color:textColor,
-        fontSize:18
+        fontSize:15
     },
     breakout:{
         height:15,

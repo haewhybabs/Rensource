@@ -166,7 +166,6 @@ export default StyleSheet.create({
     productItemText:{
        marginTop:5,
        fontSize:12,
-       width:'50%',
        color:textColor
     },
     productItemPrice:{

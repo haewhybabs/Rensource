@@ -16,7 +16,7 @@ export default class Footer extends Component {
         <TouchableOpacity onPress={()=>this.props.navigation.navigate('Home')}>
             <Icon 
               name="home"
-              size={30}
+              size={20}
               color="#8295A3"
             />
             <Text style={Styles.contentText}>Home</Text>
@@ -25,7 +25,7 @@ export default class Footer extends Component {
           <View>
             <Icon 
               name="shopping-cart"
-              size={30}
+              size={20}
               color="#8295A3"
             />
             <Text style={Styles.contentText}>Buy</Text>
@@ -34,7 +34,7 @@ export default class Footer extends Component {
           <View>
             <Icon 
               name="local-offer"
-              size={30}
+              size={20}
               color="#8295A3"
             />
             <Text style={Styles.contentText}>Deal</Text>
@@ -43,7 +43,7 @@ export default class Footer extends Component {
           <View>
             <Icon 
               name="storefront"
-              size={30}
+              size={20}
               color="#8295A3"
             />
             <Text style={Styles.contentText}>Wallet</Text>
@@ -52,7 +52,7 @@ export default class Footer extends Component {
           <TouchableOpacity onPress={()=>this.props.navigation.navigate('Home')}>
             <Icon 
               name="menu"
-              size={30}
+              size={20}
               color="#8295A3"
             />
             <Text style={Styles.contentText}>More</Text>
