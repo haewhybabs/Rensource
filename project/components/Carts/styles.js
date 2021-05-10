@@ -114,9 +114,10 @@ export default StyleSheet.create({
     },
     productItemsContainer:{
         flexDirection:'row',
-        flex:1,
-        margin:10,
+        justifyContent:'space-between',
         flexWrap:'wrap',
-        margin:20
+        margin:20,
+        flex:1,
+        alignItems:'flex-start'
     },
 });
