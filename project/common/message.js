@@ -9,15 +9,20 @@ export default class Message extends Component {
     this.state = {
     };
   }
+  closeMessage=()=>{
+    this.props.updateState('message',false)
+  }
   render() {
+    const {content} =this.props;
     return (
     <View style={Styles.messageWrapper}>
       <View style={Styles.messageContainer}>
         <View style={Styles.messageRow}>
-            <Text style={Styles.messageContent}> Item added to cart successfully </Text>
+            <Text style={Styles.messageContent}>{content}</Text>
             <Icon 
-                name="close"
-                size={30}
+              name="close"
+              size={30}
+              onPress={()=>this.closeMessage()}
             />
         </View>
       </View>

@@ -111,5 +111,12 @@ export default StyleSheet.create({
     viewAllText:{
         color:'#227EFF',
         fontSize:16
-    }
+    },
+    productItemsContainer:{
+        flexDirection:'row',
+        flex:1,
+        margin:10,
+        flexWrap:'wrap',
+        margin:20
+    },
 });

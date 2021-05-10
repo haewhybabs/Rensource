@@ -24,5 +24,10 @@ export default StyleSheet.create({
         width:35,
         height:35,
         borderRadius:35/2
+    },
+    badgeStyle:{
+        position: 'absolute',
+        top: -4,
+        right: -2,
     }
 })

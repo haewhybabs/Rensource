@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
 import { View, Text,StatusBar,TouchableOpacity} from 'react-native';
 import Styles from './styles'
-import { SearchBar } from 'react-native-elements';
-import {backgroundColor} from '../../constants/const_strings';
+import { SearchBar,Badge } from 'react-native-elements';
+import {backgroundColor,ProductItems} from '../../constants/const_strings';
 import { Icon } from 'react-native-elements';
 import Products from './Products';
 import ProductHeader from './ProductHeader';
 import { ScrollView } from 'react-native-gesture-handler';
 import Footer from '../Footer';
-export default class Home extends Component {
+import {addToCartAction,removeFromCartAction} from '../../constants/const_functions';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      search:''
     };
   }
+  updateSearch = (search) => {
+    this.setState({ search });
+  };
   render() {
+    const cart=this.props.cart;
+    const search= this.state.search;
     return (
       <View style={Styles.container}>
         <StatusBar backgroundColor={backgroundColor} barStyle="dark-content" />
@@ -42,12 +51,20 @@ export default class Home extends Component {
               <Text style={Styles.subHeaderText}>My Orders</Text>
             </View>
             <View style={Styles.verticalLine}></View>
-            <View style={Styles.subHeaderContainer}>
-              <Icon
-              name='shopping-cart'
-              />
+            <TouchableOpacity style={Styles.subHeaderContainer} onPress={()=>this.props.navigation.navigate('Carts')}>
+              <View>
+                <Icon
+                name='shopping-cart'
+                />
+                <Badge
+                value={cart.length}
+                badgeStyle={{backgroundColor: '#EE6F44'}}
+                containerStyle={Styles.badgeStyle}
+                />
+              </View>
+              
               <Text style={Styles.subHeaderText}>Cart</Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
         <ScrollView>
@@ -55,7 +72,7 @@ export default class Home extends Component {
             <SearchBar
               placeholder="Search merchbuy"
               onChangeText={this.updateSearch}
-              // value={search}
+              value={search}
               containerStyle={Styles.containerStyle}
               inputContainerStyle={Styles.inputContainerStyle}
               inputStyle={Styles.inputStyle}
@@ -74,7 +91,18 @@ export default class Home extends Component {
             </View>
           </View>
           <ProductHeader />
-          <Products navigation={this.props.navigation}/>
+          <View style={Styles.productItemsContainer}>
+            {ProductItems.filter((val)=>{
+              if(search===''){
+                return val;
+              }
+              else if(val.name.toLowerCase().includes(search.toLowerCase())){
+                return val;
+              }
+            }).map((value,index)=>(
+              <Products item={value} navigation={this.props.navigation} key={index}/>
+            ))}
+          </View>
         </ScrollView>
         {/* Footer */}
         <Footer />
@@ -82,3 +110,14 @@ export default class Home extends Component {
     );
   }
 }
+const mapStateToProp = (state) =>{
+  return {
+    cart:state.cart
+  }
+}
+const mapActionsToProps = (dispatch) => {
+  return bindActionCreators({
+    addToCartAction
+  },dispatch)
+}
+export default connect(mapStateToProp,mapActionsToProps)(Home);

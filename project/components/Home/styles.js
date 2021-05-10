@@ -169,5 +169,10 @@ export default StyleSheet.create({
     productItemPrice:{
         marginTop:5,
         fontWeight:'bold'
+    },
+    badgeStyle:{
+        position: 'absolute',
+        top: -12,
+        right: -5,
     }
 })

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text,StatusBar } from 'react-native';
+import { View, Text,StatusBar,TouchableOpacity } from 'react-native';
 import Styles from './styles';
 import AntIcon from "react-native-vector-icons/AntDesign";
-
 export default class Checkout extends Component {
   constructor(props) {
     super(props);
@@ -28,9 +27,9 @@ export default class Checkout extends Component {
           <Text style={Styles.checkoutText}>Your checkout is now successful</Text>
         </View>
         <View style={Styles.buttonContainer}>
-          <View style={Styles.okayButton}>
+          <TouchableOpacity style={Styles.okayButton} onPress={()=>this.props.navigation.navigate('Home')}>
             <Text style={Styles.buttonText}>Got It</Text>
-          </View>
+          </TouchableOpacity>
         </View>
         
         

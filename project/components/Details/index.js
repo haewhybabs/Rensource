@@ -4,33 +4,50 @@ import Header from '../Header';
 import Styles from './styles';
 import {Icon} from 'react-native-elements';
 import CartFooter from '../Footer/CartFooter';
-import Message from '../../common/message'
+import Message from '../../common/message';
+import {addToCartAction,removeFromCartAction} from '../../constants/const_functions';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-export default class Details extends Component {
+class Details extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      item:props.navigation.getParam('item'),
+      message:false
     };
   }
+  updateState(name, value) {
+		this.setState({ [name]: value });
+	}
   render() {
+    const {message} = this.state;
+    const item = this.props.navigation.getParam('item')
+    const cart = this.props.cart;
     return (
       <>
-        <Header name="Details"/>
+        <Header name="Details" navigation={this.props.navigation} cartLength={cart.length}/>
         <ScrollView>
           <View style={Styles.headerBackground}>
             {/* Message */}
-            <Message />
+            {
+              message &&((
+                <Message 
+                  updateState={this.updateState.bind(this)}
+                  content='Item added to cart successfully'
+                />
+              ))
+            }
             <Image 
-              source = {require('../../assets/images/shoe.png')}                         
+              source = {item.image}                         
               style={Styles.detailImage}      
             />
           </View>
           {/* Content */}
           <View style={Styles.contentHeaderContainer}>
-            <Text style={Styles.contentHeader}>NIKE Huarache 2019</Text>
-            <Text style={Styles.detailContent}>Get comfy and comfortable with the new 2019 designer
-            sneaker for all your events </Text>
-            <Text style={Styles.detailPrice}>N45,000 - N80,000</Text>
+            <Text style={Styles.contentHeader}>{item.name}</Text>
+            <Text style={Styles.detailContent}>{item.description}</Text>
+            <Text style={Styles.detailPrice}>N{item.price}</Text>
           </View>
           {/* Description */}
           <View style={Styles.borderContainer}>
@@ -68,8 +85,23 @@ export default class Details extends Component {
             </View>
           </View>
         </ScrollView>
-        <CartFooter navigation={this.props.navigation}/>
+        <CartFooter 
+          navigation={this.props.navigation} 
+          item={item}
+          updateState={this.updateState.bind(this)}
+        />
       </>
     );
   }
 }
+const mapStateToProp = (state) =>{
+  return {
+    cart:state.cart
+  }
+}
+const mapActionsToProps = (dispatch) => {
+  return bindActionCreators({
+    addToCartAction
+  },dispatch)
+}
+export default connect(mapStateToProp,mapActionsToProps)(Details);
