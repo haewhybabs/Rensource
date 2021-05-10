@@ -41,7 +41,7 @@ export default class ProductHeader extends Component {
                     size={35}
                     />
                 </View>
-                <Text style={Styles.productHeaderText}>Recommended Products</Text>
+                <Text style={Styles.productHeaderText}>Recommended</Text>
             </View>
             <View style={Styles.productHeaderWrapper}>
                 <View style={Styles.productHeaderShops}>

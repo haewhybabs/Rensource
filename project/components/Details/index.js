@@ -20,6 +20,9 @@ class Details extends Component {
   updateState(name, value) {
 		this.setState({ [name]: value });
 	}
+  componentWillUnmount(){
+    this.setState({message:false});
+  }
   render() {
     const {message} = this.state;
     const item = this.props.navigation.getParam('item')

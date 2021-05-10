@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import Styles from './styles';
 import { Icon } from 'react-native-elements';
 export default class Footer extends Component {
@@ -13,14 +13,14 @@ export default class Footer extends Component {
     return (
       <View style={Styles.container}>
         <View style={Styles.contentWrapper}>
-          <View>
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Home')}>
             <Icon 
               name="home"
               size={30}
               color="#8295A3"
             />
             <Text style={Styles.contentText}>Home</Text>
-          </View>
+          </TouchableOpacity>
 
           <View>
             <Icon 
@@ -49,14 +49,14 @@ export default class Footer extends Component {
             <Text style={Styles.contentText}>Wallet</Text>
           </View>
 
-          <View>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('Home')}>
             <Icon 
               name="menu"
               size={30}
               color="#8295A3"
             />
-            <Text style={Styles.contentText}>Home</Text>
-          </View>
+            <Text style={Styles.contentText}>More</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );

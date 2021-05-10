@@ -57,12 +57,15 @@ export default StyleSheet.create({
         margin:15
     },
     bannerWrapper:{
-        width:'100%',
         marginTop:-15
     },
     bannerContainer:{
         height:150,
-        margin:25,
+        marginLeft:10,
+        marginRight:10,
+        marginTop:20,
+        marginBottom:20,
+        width:350,
         borderRadius:10,
         backgroundColor:'#003377',
     },
@@ -99,13 +102,13 @@ export default StyleSheet.create({
     },
     productHeader:{
         flexDirection:'row',
-        justifyContent:'space-around',
-        width:'100%',
-        marginLeft:20,
-        marginRight:20
+        justifyContent:'space-between',
+        flex:1,
+        alignItems:'flex-start',
+        margin:10,
     },
     productHeaderWrapper:{
-        flex:1
+        marginVertical: 10, alignItems: 'center'
     },
     productHeaderCategory:{
         height:70,
@@ -146,14 +149,14 @@ export default StyleSheet.create({
     },
     productItemsContainer:{
         flexDirection:'row',
-        flex:1,
-        margin:10,
+        justifyContent:'space-between',
         flexWrap:'wrap',
-        margin:20
+        margin:20,
+        flex:1,
+        alignItems:'flex-start'
     },
     productItemWrapper:{
-        flexBasis:'33.3%',
-        marginBottom: 10,
+        marginVertical: 10, alignItems: 'center'
     },
     productItemImage:{
         width:120,

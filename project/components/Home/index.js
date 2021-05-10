@@ -79,16 +79,29 @@ class Home extends Component {
             />
           </View>
           <View style={Styles.bannerWrapper}>
-            <View style={Styles.bannerContainer}>
-              <View style={Styles.bannerContent}>
-                <Text style={Styles.bannerText}>Having any <Text style={{color:'#F39677'}}>issues</Text> with your order?</Text>
-                <TouchableOpacity style={Styles.bannerButton} onPress={()=>this.props.navigation.navigate('Order')}>
-                  <View style={Styles.bannerButtonContainer}>
-                      <Text style={Styles.bannerButtonText}>Contact Us</Text>
-                  </View>
-                </TouchableOpacity>
+            <ScrollView horizontal={true}>
+              <View style={Styles.bannerContainer}>
+                <View style={Styles.bannerContent}>
+                  <Text style={Styles.bannerText}>Having any <Text style={{color:'#F39677'}}>issues</Text> with your order?</Text>
+                  <TouchableOpacity style={Styles.bannerButton} onPress={()=>this.props.navigation.navigate('Order')}>
+                    <View style={Styles.bannerButtonContainer}>
+                        <Text style={Styles.bannerButtonText}>Contact Us</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
               </View>
-            </View>
+
+              <View style={{...Styles.bannerContainer,backgroundColor:'#EE6F44'}}>
+                <View style={Styles.bannerContent}>
+                  <Text style={Styles.bannerText}>Having any <Text style={{color:'#F39677'}}>issues</Text> with your order?</Text>
+                  <TouchableOpacity style={Styles.bannerButton} onPress={()=>this.props.navigation.navigate('Order')}>
+                    <View style={Styles.bannerButtonContainer}>
+                        <Text style={Styles.bannerButtonText}>Contact Us</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </ScrollView>
           </View>
           <ProductHeader />
           <View style={Styles.productItemsContainer}>
@@ -105,7 +118,7 @@ class Home extends Component {
           </View>
         </ScrollView>
         {/* Footer */}
-        <Footer />
+        <Footer navigation={this.props.navigation}/>
       </View>
     );
   }
